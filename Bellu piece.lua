@@ -63,14 +63,14 @@ game:GetService("ReplicatedStorage").stat:FireServer(unpack(args))
 local section = AddSection(Main, {"INF LEVELS AND MONEY ( dupe quest )"})
 
 AddButton(Main, {
-  Name = "GET INF LEVELS ( YOU NEED TO GET QUEST AND PRESS DONE THEN ENABLE IT",
+  Name = "GET INF LEVELS",
   Callback = function()
- while true do 
+      while true do 
     local args = {
     [1] = false
 }
 
 game:GetService("ReplicatedStorage").QuestResult:FireServer(unpack(args))
-        wait(0.1)
+        wait(0.1) end
   end
 })

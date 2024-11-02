@@ -62,24 +62,15 @@ game:GetService("ReplicatedStorage").stat:FireServer(unpack(args))
 
 local section = AddSection(Main, {"INF LEVELS AND MONEY ( dupe quest )"})
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local QuestResult = ReplicatedStorage:WaitForChild("QuestResult")
+AddButton(Main, {
+  Name = "GET INF LEVELS ( YOU NEED TO GET QUEST AND PRESS DONE THEN ENABLE IT",
+  Callback = function()
+ while true do 
+    local args = {
+    [1] = false
+}
 
-local Toggle = AddToggle(Main, {
-    Name = "Toggle Test",
-    Default = false,
-    Callback = function(Value)
-        local args = {
-            [1] = Value  -- Pass the toggle value directly
-        }
-        QuestResult:FireServer(unpack(args))  -- Fire the server with the toggle value
-
-        if Value then
-            print("Toggle is ON: Quest marked as completed.")
-        else
-            print("Toggle is OFF: Quest marked as not completed.")
-        end
-    end
+game:GetService("ReplicatedStorage").QuestResult:FireServer(unpack(args))
+        wait(0.1)
+  end
 })
-
-local Label = AddTextLabel(Main, "Note : First complete any quest then press done then enable the toogle to get inf")
